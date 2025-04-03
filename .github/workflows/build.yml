@@ -66,4 +66,6 @@ jobs:
           body: ${{ steps.changelog.outputs.clean_changelog }}
       - name: Deploy
         run: |
-          npm run deploy -- --no-silent
+          npx angular-cli-ghpages --dir=dist/bitcoin --base-href=/bitcoin-order-app/ --no-silent
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
